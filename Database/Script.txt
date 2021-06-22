@@ -1,0 +1,170 @@
+-- --------------------------------------------------------
+-- Servidor:                     rafaeldatabase
+-- Versão do servidor:           10.1.40-MariaDB - mariadb.org binary distribution
+-- OS do Servidor:               Win64
+-- HeidiSQL Versão:              9.3.0.4984
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Copiando estrutura para tabela rend_api_book.author
+CREATE TABLE IF NOT EXISTS `author` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(500) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+
+
+-- Copiando estrutura para tabela rend_api_book.book
+CREATE TABLE IF NOT EXISTS `book` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(500) DEFAULT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `isbn` varchar(100) DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL,
+  `author_id` int(11) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
+  `editor` varchar(300) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `date_release` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ix_author_id` (`author_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+
+
+-- Copiando estrutura para tabela rend_api_book.file
+CREATE TABLE IF NOT EXISTS `file` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `table` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `size` decimal(18,2) DEFAULT NULL COMMENT 'Tamanho em bytes do arquivo.',
+  `id_registry` int(11) DEFAULT NULL COMMENT 'Id do registro.',
+  `old_name` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `thumbs` text COLLATE utf8_unicode_ci,
+  `pid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ix_registro` (`id_registry`,`table`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+
+-- Copiando estrutura para tabela rend_api_book.migrations
+CREATE TABLE IF NOT EXISTS `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+
+-- Copiando estrutura para tabela rend_api_book.oauth_access_tokens
+CREATE TABLE IF NOT EXISTS `oauth_access_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `client_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `expires_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `oauth_access_tokens_user_id_index` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+
+-- Copiando estrutura para tabela rend_api_book.oauth_auth_codes
+CREATE TABLE IF NOT EXISTS `oauth_auth_codes` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+
+-- Copiando estrutura para tabela rend_api_book.oauth_clients
+CREATE TABLE IF NOT EXISTS `oauth_clients` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `redirect` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `personal_access_client` tinyint(1) NOT NULL,
+  `password_client` tinyint(1) NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `oauth_clients_user_id_index` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+
+-- Copiando estrutura para tabela rend_api_book.oauth_personal_access_clients
+CREATE TABLE IF NOT EXISTS `oauth_personal_access_clients` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `client_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `oauth_personal_access_clients_client_id_index` (`client_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+
+-- Copiando estrutura para tabela rend_api_book.oauth_refresh_tokens
+CREATE TABLE IF NOT EXISTS `oauth_refresh_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `access_token_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `oauth_refresh_tokens_access_token_id_index` (`access_token_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+
+-- Copiando estrutura para tabela rend_api_book.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `access_token` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `api_token` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

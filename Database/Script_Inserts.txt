@@ -1,0 +1,96 @@
+-- --------------------------------------------------------
+-- Servidor:                     rafaeldatabase
+-- Versão do servidor:           10.1.40-MariaDB - mariadb.org binary distribution
+-- OS do Servidor:               Win64
+-- HeidiSQL Versão:              9.3.0.4984
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+-- Copiando dados para a tabela rend_api_book.author: ~13 rows (aproximadamente)
+/*!40000 ALTER TABLE `author` DISABLE KEYS */;
+INSERT INTO `author` (`id`, `name`, `created_at`, `updated_at`) VALUES
+	(1, 'Isaac Newton de Cristo 10', NULL, '2018-10-22 19:31:02'),
+	(3, 'Rubalinho dos anjos de Jesus.', '2020-01-28 18:01:31', '2020-01-28 18:59:31'),
+	(16, 'CLAUDIO LUÍS', '2020-01-28 18:01:01', NULL),
+	(54, 'RICARDO MENESTREL DA SILVA', '2020-01-28 18:01:37', '2020-01-29 15:51:24'),
+	(64, 'Author 20 20 20', '2020-01-28 18:01:12', '2020-01-28 19:17:18'),
+	(66, 'Author 22', NULL, NULL),
+	(68, 'Author 24', NULL, NULL),
+	(69, 'Author 25', NULL, NULL),
+	(70, 'Author 26', '2020-01-28 19:01:42', '2020-01-28 19:43:42'),
+	(71, 'Author 2700', '2020-01-28 19:01:27', '2020-01-28 19:43:27'),
+	(72, 'Juninho de Ju', '2020-01-28 19:22:02', '2020-01-28 19:22:25'),
+	(74, 'RendTI', '2020-01-28 19:27:57', '2020-01-28 19:27:57'),
+	(75, 'AAAAAAAAAA', '2020-01-28 19:44:01', '2020-01-28 19:44:01'),
+	(76, 'Author atualizado na segunda api .core02', '2020-01-31 17:08:10', '2020-01-31 17:08:10'),
+	(77, 'Fulano cadastrado no .netcore 0034', '2020-01-31 17:03:04', '2020-01-31 17:13:33');
+/*!40000 ALTER TABLE `author` ENABLE KEYS */;
+
+-- Copiando dados para a tabela rend_api_book.book: ~9 rows (aproximadamente)
+/*!40000 ALTER TABLE `book` DISABLE KEYS */;
+INSERT INTO `book` (`id`, `title`, `description`, `isbn`, `stock`, `author_id`, `price`, `editor`, `created_at`, `updated_at`, `date_release`) VALUES
+	(1, 'Palavras de inri cristo update 001', 'Inri Cristo', '12365412', 2, 1, 12.00, NULL, NULL, '2018-10-22 14:08:55', '1986-11-16 00:10:00'),
+	(2, 'Supercampeões - Uma história 1234', 'A história dos supercampeões, toda a sua saga até o final', '3214565', 5, 3, 11.11, '', NULL, '2018-10-22 14:28:34', '1999-11-12 11:54:00'),
+	(3, 'PostMan edição', 'Edição via postman. Exemplo prático', '333333', 7, 3, 11.56, 'null', NULL, '2018-10-22 04:03:45', '2020-01-23 11:22:00'),
+	(4, 'Passarinho Feliz', 'A incrível história do passaro', '12365412AAtR', 6, 1, 32.14, NULL, NULL, NULL, '2020-01-30 18:54:00'),
+	(5, 'Passarinho Feliz segunda edição', 'A incrível história do passaro', '12365412AAtR', 6, 1, 12.46, NULL, NULL, NULL, '2020-01-08 11:24:00'),
+	(6, 'My Special and Amazing Life', NULL, '12365412331', 2, 1, 12.15, 'My Editor', '2018-10-22 04:00:42', '2018-10-22 14:15:45', '2014-10-05 04:05:00'),
+	(9, 'Quero ver começar a paginação', NULL, '123654', 3, 16, 12.50, 'Editor Test', '2018-10-22 04:10:13', '2018-10-22 14:28:15', '2012-05-10 11:15:00'),
+	(10, 'Harry Potter 1', 'Um belíssimo livro.', '123321456', 1, 54, 12.57, 'Editor', '2018-10-22 04:19:36', '2018-10-22 19:30:53', '2020-01-14 20:32:00'),
+	(11, 'Meu novo Livro', 'Testes', '123654SSS', 30, 54, 35.14, 'Testes', NULL, NULL, '2019-12-10 14:00:00');
+/*!40000 ALTER TABLE `book` ENABLE KEYS */;
+
+-- Copiando dados para a tabela rend_api_book.file: ~2 rows (aproximadamente)
+/*!40000 ALTER TABLE `file` DISABLE KEYS */;
+INSERT INTO `file` (`id`, `name`, `type`, `table`, `title`, `size`, `id_registry`, `old_name`, `thumbs`, `pid`) VALUES
+	(1, 'amcharts.png', 'image/png', 'book', NULL, 72989.00, 10, NULL, '{"width":1646,"height":440,"file":"amcharts.png","size":72989,"sizes":{"thumbnail":{"width":150,"height":150,"file":"amcharts-150x150.png","size":"","sizes":"","mime-type":"image\\/png"}},"original_file":"amCharts.png"}', NULL),
+	(3, 'teste_img.jpg', 'image/jpeg', 'book', NULL, 17250.00, 10, NULL, '{"width":400,"height":400,"file":"teste_img.jpg","size":17250,"sizes":{"thumbnail":{"width":150,"height":150,"file":"teste_img-150x150.jpg","size":"","sizes":"","mime-type":"image\\/jpeg"}},"original_file":"teste_img.jpg"}', NULL),
+	(5, 'opensonic.jpg', 'image/jpeg', 'book', NULL, 7627.00, 5, NULL, '{"width":256,"height":152,"file":"opensonic.jpg","size":7627,"sizes":{"thumbnail":{"width":150,"height":150,"file":"opensonic-150x150.jpg","size":"","sizes":"","mime-type":"image\\/jpeg"}},"original_file":"OpenSonic.jpg"}', NULL),
+	(6, '2021-01-06-17-15-17.gif', 'image/gif', 'book', NULL, 2699072.00, 10, NULL, '{"width":1920,"height":1080,"file":"2021-01-06-17-15-17.gif","size":2699072,"sizes":{"thumbnail":{"width":150,"height":150,"file":"2021-01-06-17-15-17-150x150.gif","size":"","sizes":"","mime-type":"image\\/gif"}},"original_file":"2021-01-06-17-15-17.gif"}', NULL);
+/*!40000 ALTER TABLE `file` ENABLE KEYS */;
+
+-- Copiando dados para a tabela rend_api_book.migrations: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+
+-- Copiando dados para a tabela rend_api_book.oauth_access_tokens: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `oauth_access_tokens` DISABLE KEYS */;
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+	('15f833ae238b2f22844b31ae2fb1b85c98c24cd8497c952c191e0c3c689cf98895bcf20db67a3a00', 1, 3, 'access_token', '[]', 0, '2020-01-28 14:47:09', '2020-01-28 14:47:09', '2021-01-28 14:47:09');
+/*!40000 ALTER TABLE `oauth_access_tokens` ENABLE KEYS */;
+
+-- Copiando dados para a tabela rend_api_book.oauth_auth_codes: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `oauth_auth_codes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oauth_auth_codes` ENABLE KEYS */;
+
+-- Copiando dados para a tabela rend_api_book.oauth_clients: ~4 rows (aproximadamente)
+/*!40000 ALTER TABLE `oauth_clients` DISABLE KEYS */;
+INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
+	(1, NULL, 'Laravel Personal Access Client', 'xwnw0lBTv0eMg4zgt9idXl3JQmRv7ecTLdkfcYC4', 'http://localhost', 1, 0, 0, '2020-01-28 13:30:57', '2020-01-28 13:30:57'),
+	(2, NULL, 'Laravel Password Grant Client', 'xyxewAVfL2hvhcSOufZAFQ1dOrUEi5NPxu5G8PeW', 'http://localhost', 0, 1, 0, '2020-01-28 13:30:57', '2020-01-28 13:30:57'),
+	(3, NULL, 'Laravel Personal Access Client', 'YU318Z08N5PWhufyWwkFLfNJlQWUU0gJcfjhtujZ', 'http://localhost', 1, 0, 0, '2020-01-28 13:31:27', '2020-01-28 13:31:27'),
+	(4, NULL, 'Laravel Password Grant Client', 'jsNQg1sl5ao7g6g1KjuItNrzx3hJzwRi2bza55nd', 'http://localhost', 0, 1, 0, '2020-01-28 13:31:27', '2020-01-28 13:31:27');
+/*!40000 ALTER TABLE `oauth_clients` ENABLE KEYS */;
+
+-- Copiando dados para a tabela rend_api_book.oauth_personal_access_clients: ~2 rows (aproximadamente)
+/*!40000 ALTER TABLE `oauth_personal_access_clients` DISABLE KEYS */;
+INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
+	(1, 1, '2020-01-28 13:30:57', '2020-01-28 13:30:57'),
+	(2, 3, '2020-01-28 13:31:27', '2020-01-28 13:31:27');
+/*!40000 ALTER TABLE `oauth_personal_access_clients` ENABLE KEYS */;
+
+-- Copiando dados para a tabela rend_api_book.oauth_refresh_tokens: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `oauth_refresh_tokens` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oauth_refresh_tokens` ENABLE KEYS */;
+
+-- Copiando dados para a tabela rend_api_book.users: ~1 rows (aproximadamente)
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `access_token`, `api_token`) VALUES
+	(1, 'Administrator', 'admin@admin.com', NULL, '$2y$10$KKtG3o/UUj8Mj4k0xpM2SO4v1pg6ci7kZhj8U9E4azkANNib4QFC.', NULL, '2020-01-28 12:48:03', '2020-01-28 14:47:09', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjE1ZjgzM2FlMjM4YjJmMjI4NDRiMzFhZTJmYjFiODVjOThjMjRjZDg0OTdjOTUyYzE5MWUwYzNjNjg5Y2Y5ODg5NWJjZjIwZGI2N2EzYTAwIn0.eyJhdWQiOiIzIiwianRpIjoiMTVmODMzYWUyMzhiMmYyMjg0NGIzMWFlMmZiMWI4NWM5OGMyNGNkODQ5N2M5NTJjMTkxZTBjM2M2ODljZjk4ODk1YmNmMjBkYjY3YTNhMDAiLCJpYXQiOjE1ODAyMjI4MjksIm5iZiI6MTU4MDIyMjgyOSwiZXhwIjoxNjExODQ1MjI5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.22O3lJwrEkUfEC8aqaD4dPOGZOZkdy7LV7CaOM0b7yWlJjGUYrciiR6nYtgt_vMtq13c-6vKFPtguEejkBzV5sMKrCJmHrVOBdjNJNi2xto-v9CSk254xrOwvgvbBxdqOUuj2D-QmbKf5X7qSdDqfyOXBcxGe6foJy6Kpn4_vikWSbBIqt13HRVQbgzjhl08qBB1CIrVhl5UV8jlOco13xsNJG_7BzfaiZusiofGqVSPd0_2Rzl0OmR-z96AYbCQCP3MLDaYGxJjkeHKAY1U-d7j-lnJFbvRuxGYc--ddMhLPIIe0NCXUjKq6ZyxI_rEL1qwB2__MoIKBU6_AfH29bhHyUUT0DeC2KZNpAMqPaDWb6J_tFjyavuc5GxszkZCumXHauWbxJFa6slso1eRdNfgjANEwMFh1Zuq2jgnBXLxCwJfFLLNCaJo8TNiYNHdx3wePoLoyxhNCHa6ABvRGwJz1fYfZTpWhKIJND_xza3FyiBjkFNbo_C2KXPI6Q0DHPvQK9B8b48tPAGxE1k7rBhAnHZFSSxTr7jK5tyLwGrTsrh8Yt0yLu_eLlcmsfQJi2qJjMaeJSEgGCBXY7U_PSqXVzlzCXGEHTgcFcF94BfyfzZdL1oNZTLuIlCeheWHDR9nDlR-9wDTZ25rmYKQFxnRfMxWjayvTUS6sDukXVQ', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjE1ZjgzM2FlMjM4YjJmMjI4NDRiMzFhZTJmYjFiODVjOThjMjRjZDg0OTdjOTUyYzE5MWUwYzNjNjg5Y2Y5ODg5NWJjZjIwZGI2N2EzYTAwIn0.eyJhdWQiOiIzIiwianRpIjoiMTVmODMzYWUyMzhiMmYyMjg0NGIzMWFlMmZiMWI4NWM5OGMyNGNkODQ5N2M5NTJjMTkxZTBjM2M2ODljZjk4ODk1YmNmMjBkYjY3YTNhMDAiLCJpYXQiOjE1ODAyMjI4MjksIm5iZiI6MTU4MDIyMjgyOSwiZXhwIjoxNjExODQ1MjI5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.22O3lJwrEkUfEC8aqaD4dPOGZOZkdy7LV7CaOM0b7yWlJjGUYrciiR6nYtgt_vMtq13c-6vKFPtguEejkBzV5sMKrCJmHrVOBdjNJNi2xto-v9CSk254xrOwvgvbBxdqOUuj2D-QmbKf5X7qSdDqfyOXBcxGe6foJy6Kpn4_vikWSbBIqt13HRVQbgzjhl08qBB1CIrVhl5UV8jlOco13xsNJG_7BzfaiZusiofGqVSPd0_2Rzl0OmR-z96AYbCQCP3MLDaYGxJjkeHKAY1U-d7j-lnJFbvRuxGYc--ddMhLPIIe0NCXUjKq6ZyxI_rEL1qwB2__MoIKBU6_AfH29bhHyUUT0DeC2KZNpAMqPaDWb6J_tFjyavuc5GxszkZCumXHauWbxJFa6slso1eRdNfgjANEwMFh1Zuq2jgnBXLxCwJfFLLNCaJo8TNiYNHdx3wePoLoyxhNCHa6ABvRGwJz1fYfZTpWhKIJND_xza3FyiBjkFNbo_C2KXPI6Q0DHPvQK9B8b48tPAGxE1k7rBhAnHZFSSxTr7jK5tyLwGrTsrh8Yt0yLu_eLlcmsfQJi2qJjMaeJSEgGCBXY7U_PSqXVzlzCXGEHTgcFcF94BfyfzZdL1oNZTLuIlCeheWHDR9nDlR-9wDTZ25rmYKQFxnRfMxWjayvTUS6sDukXVQ');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
